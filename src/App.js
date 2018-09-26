@@ -92,46 +92,27 @@ class App extends Component {
 
   render() {
     const candyOptions = [
-      {
-        img: 'nerds.jpg', 
-        onClick: this.clickNerds
-      },
-      {
-        img: 'reesesPBC.jpg', 
-        onClick: this.clickReeses
-      },
-      {
-        img: 'twix.jpg', 
-        onClick: this.clickTwix
-      },
-      {
-        img: 'tootsieRoll.jpg', 
-        onClick: this.clickTootsie
-      },
+      { src:"nerds.jpg", onClick:this.clickNerds },
+      { src:"reesesPBC.jpg", onClick:this.clickReeses },
+      { src:"twix.jpg", onClick:this.clickTwix },
+      { src:"tootsieRoll.jpg", onClick:this.clickTootsie }
     ];
+
+    const moneyOptions = [
+      { src:"quarter.jpg", onClick:this.clickQuarter},
+      { src:"dime.jpg", onClick:this.clickDime},
+      { src:"nickel.png", onClick:this.clickNickel},
+    ]
 
     return (
       <div className="App">
         <h1>The Price Is State!</h1>
 
-        <Total total={this.state.total} color={this.state.color} />        
+        <Total total={this.state.total} color={this.state.color} />
+        
+        <Section title="Candy To Buy" options={candyOptions} />
 
-        <Section options={candyOptions} title="Candy To Buy" />
-
-        <div className="section">
-          <h2>Candy To Buy</h2>
-          <img src="nerds.jpg" onClick={this.clickNerds}/>
-          <img src="reesesPBC.jpg" onClick={this.clickReeses} />
-          <img src="twix.jpg" onClick={this.clickTwix} />
-          <img src="tootsieRoll.jpg" onClick={this.clickTootsie} />
-        </div>
-
-        <div className="section">
-          <h2>Price To Pay</h2>
-          <img src="quarter.jpg" onClick={this.clickQuarter} />
-          <img src="dime.jpg" onClick={this.clickDime} />
-          <img src="nickel.png" onClick={this.clickNickel} />
-        </div>
+        <Section title="Money To Spend" options={moneyOptions} />
       </div>
     );
   }

@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
 
 const Section = props => {
-    const options = props.options.map(option => {
+    const myOptions = props.options.map(option => {
         return (
-            <img src={option.img} onClick={option.onClick} />
+            <img src={option.src} onClick={option.onClick} />
         );
     });
 
-    return(
+    return (
         <div className="section">
-          <h2>{props.title}</h2>
-          {options}
+            <h2>{props.title}</h2>
+            {myOptions}
         </div>
     );
 };
