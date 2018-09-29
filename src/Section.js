@@ -1,9 +1,10 @@
-import React, {Component} from 'react';
+import React from 'react';
+import './Section.css';
 
 const Section = props => {
     const myOptions = props.options.map(option => {
         return (
-            <img src={option.src} onClick={option.onClick} />
+            <img src={option.src} style={{padding:option.padding || '0px'}} onClick={option.onClick} />
         );
     });
 

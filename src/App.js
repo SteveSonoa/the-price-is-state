@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Total from './Total';
 import Section from './Section';
@@ -17,7 +16,7 @@ class App extends Component {
     }
   }
 
-  checkForColor = total => {
+  checkForColor(total)  {
     if(total > 0) {
       return '#00ff00';
     }
@@ -99,9 +98,9 @@ class App extends Component {
     ];
 
     const moneyOptions = [
-      { src:"quarter.jpg", onClick:this.clickQuarter},
-      { src:"dime.jpg", onClick:this.clickDime},
-      { src:"nickel.png", onClick:this.clickNickel},
+      { src:"quarter.jpg", onClick:this.clickQuarter, padding:'0px'},
+      { src:"dime.jpg", onClick:this.clickDime, padding:'50px' },
+      { src:"nickel.png", onClick:this.clickNickel, padding: '20px'},
     ]
 
     return (
