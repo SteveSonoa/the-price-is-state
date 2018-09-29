@@ -91,16 +91,16 @@ class App extends Component {
 
   render() {
     const candyOptions = [
-      { src:"nerds.jpg", onClick:this.clickNerds },
+      { src:"nerds.jpg", onClick: this.clickNerds },
       { src:"reesesPBC.jpg", onClick:this.clickReeses },
       { src:"twix.jpg", onClick:this.clickTwix },
       { src:"tootsieRoll.jpg", onClick:this.clickTootsie }
     ];
 
     const moneyOptions = [
-      { src:"quarter.jpg", onClick:this.clickQuarter, padding:'0px'},
-      { src:"dime.jpg", onClick:this.clickDime, padding:'50px' },
-      { src:"nickel.png", onClick:this.clickNickel, padding: '20px'},
+      { src:"quarter.jpg", onClick:this.clickQuarter, padding:0},
+      { src:"dime.jpg", onClick:this.clickDime, padding:50 },
+      { src:"nickel.png", onClick:this.clickNickel, padding: 20},
     ]
 
     return (
