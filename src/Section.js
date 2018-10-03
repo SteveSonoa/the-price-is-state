@@ -3,9 +3,17 @@ import PropTypes from 'prop-types';
 import './Section.css';
 
 class Section extends Component {
+    componentDidMount() {
+        const tempState = {};
+        for (let i = 0; i < this.props.options.length; i++) {
+            tempState[this.props.options[i].src] = true;
+        }
+        this.setState({...tempState});
+    }
+
     myOptions = this.props.options.map(option => {
         return (
-            <img src={option.src} id={option.amount} style={{padding:`${option.padding}px` || '0px'}} onClick={option.onClick} key={option.src} alt={option.src} />
+            <img src={option.src} style={{padding:`${option.padding}px` || '0px' }} onClick={() => {if(this.state[option.src]) {option.onClick(option.amount); this.setState({[option.src]: false});}}} key={option.src} alt={option.src} />
         );
     });
 
@@ -24,9 +32,9 @@ Section.propTypes = {
     options: PropTypes.arrayOf(
         PropTypes.shape({
             src: PropTypes.string.isRequired,
-            onClick: PropTypes.func.isRequired,
+            onClick: PropTypes.func,
             padding: PropTypes.number,
-            amount: PropTypes.number.isRequired
+            amount: PropTypes.number
         })
     )
 };
@@ -36,7 +44,8 @@ Section.defaultProps = {
     options: [
         {
             onClick: () => {},
-            padding: 0
+            padding: 0,
+            amount: 0
         }
     ]
 };

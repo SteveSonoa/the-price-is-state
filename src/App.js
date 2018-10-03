@@ -14,6 +14,9 @@ class App extends Component {
     if(this.state.total === 0 && this.state.moves > 0) {
       alert('You win!!!');
     }
+    if(this.state.moves > 6) {
+      alert('You lose!!!');
+    }
   }
 
   convertToDollars = cash => {
@@ -39,81 +42,18 @@ class App extends Component {
     });
   }
 
-  clickQuarter = () => {
-    const newColor = this.checkForColor(this.state.total + 25);
-    this.setState({
-      total: this.state.total + 25,
-      color: newColor,
-      moves: this.state.moves + 1
-    });
-  }
-
-  clickDime = () => {
-    const newColor = this.checkForColor(this.state.total + 10);
-    this.setState({
-      total: this.state.total + 10,
-      color: newColor,
-      moves: this.state.moves + 1
-    });
-  }
-
-  clickNickel = () => {
-    const newColor = this.checkForColor(this.state.total + 5);
-    this.setState({
-      total: this.state.total + 5,
-      color: newColor,
-      moves: this.state.moves + 1
-    });
-  }
-
-  clickNerds = () => {
-    const newColor = this.checkForColor(this.state.total - 12);
-    this.setState({
-      total: this.state.total - 12,
-      color: newColor,
-      moves: this.state.moves + 1
-    });
-  }
-
-  clickTwix = () => {
-    const newColor = this.checkForColor(this.state.total - 18);
-    this.setState({
-      total: this.state.total - 18,
-      color: newColor,
-      moves: this.state.moves + 1
-    });
-  }
-
-  clickReeses = () => {
-    const newColor = this.checkForColor(this.state.total - 29);
-    this.setState({
-      total: this.state.total - 29,
-      color: newColor,
-      moves: this.state.moves + 1
-    });
-  }
-
-  clickTootsie = () => {
-    const newColor = this.checkForColor(this.state.total - 2);
-    this.setState({
-      total: this.state.total - 2,
-      color: newColor,
-      moves: this.state.moves + 1
-    });
-  }
-
   render() {
     const candyOptions = [
-      { src:"nerds.jpg", onClick: this.clickNerds, amount:-12 },
-      { src:"reesesPBC.jpg", onClick:this.clickReeses, amount:-29 },
-      { src:"twix.jpg", onClick:this.clickTwix, amount:-18 },
-      { src:"tootsieRoll.jpg", onClick:this.clickTootsie, amount:-2 }
+      { src:"nerds.jpg", onClick: this.handleClick, amount:-12 },
+      { src:"reesesPBC.jpg", onClick:this.handleClick, amount:-29 },
+      { src:"twix.jpg", onClick:this.handleClick, amount:-18 },
+      { src:"tootsieRoll.jpg", onClick:this.handleClick, amount:-2 }
     ];
 
     const moneyOptions = [
-      { src:"quarter.jpg", onClick:this.clickQuarter, padding:0, amount:25},
-      { src:"dime.jpg", onClick:this.clickDime, padding:50, amount:10},
-      { src:"nickel.png", onClick:this.clickNickel, padding:20, amount:5},
+      { src:"quarter.jpg", onClick:this.handleClick, padding:0, amount:25},
+      { src:"dime.jpg", onClick:this.handleClick, padding:50, amount:10},
+      { src:"nickel.png", onClick:this.handleClick, padding:20, amount:5},
     ]
 
     return (
@@ -121,6 +61,9 @@ class App extends Component {
         <h1>The Price Is State!</h1>
 
         <Total total={this.convertToDollars(this.state.total)} color={this.state.color} />
+
+        <p>The game is simple; buy candy and pay for it.</p>
+        <p>But you can only click each piece of candy once, and you can only use each coin once! Can you do it?</p>
         
         <Section title="Candy To Buy" options={candyOptions} />
 
