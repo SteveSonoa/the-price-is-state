@@ -1,4 +1,4 @@
-#The Price Is State
+# The Price Is State
 
 This is a React demo project showing how to manipulate State and Props between components.
 
@@ -20,4 +20,5 @@ The goal is to pay for your candy exactly! Click on a piece of candy to buy it; 
 ## Credits
 
 Created by [Steve Marshall](http://www.fullstacksteve.com)
-[LinkedIn:](https://www.linkedin.com/in/sonoa)
+
+Visit me on [LinkedIn](https://www.linkedin.com/in/sonoa)
