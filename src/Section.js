@@ -5,7 +5,7 @@ import './Section.css';
 class Section extends Component {
     myOptions = this.props.options.map(option => {
         return (
-            <img src={option.src} style={{padding:`${option.padding}px` || '0px'}} onClick={option.onClick} key={option.src} alt={option.src} />
+            <img src={option.src} id={option.amount} style={{padding:`${option.padding}px` || '0px'}} onClick={option.onClick} key={option.src} alt={option.src} />
         );
     });
 
@@ -24,8 +24,9 @@ Section.propTypes = {
     options: PropTypes.arrayOf(
         PropTypes.shape({
             src: PropTypes.string.isRequired,
-            onClick: PropTypes.func,
-            padding: PropTypes.number
+            onClick: PropTypes.func.isRequired,
+            padding: PropTypes.number,
+            amount: PropTypes.number.isRequired
         })
     )
 };
